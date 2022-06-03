@@ -16,6 +16,9 @@ type FormValue = {
     url: string;
 };
 
+const apiUrl =
+    process.env.API_URL ?? 'https://staging-demo-backend-app-eyk2.encr.app/url';
+
 export default function Index() {
     const {
         register,
@@ -26,7 +29,7 @@ export default function Index() {
     });
 
     const mutation = useMutation((url: string) => {
-        return fetch(process.env.API_URL, {
+        return fetch(apiUrl, {
             method: 'POST',
             body: JSON.stringify({ url }),
         }).then((resp) => resp.json());
