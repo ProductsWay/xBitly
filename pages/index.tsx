@@ -1,158 +1,79 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import { GetServerSideProps } from 'next';
 import { getSession } from 'next-auth/client';
-import Head from 'next/head';
-import Image from 'next/image';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
 
-import Counter from '../components/Counter';
 import Layout from '../components/Layout';
-import styles from '../styles/Home.module.css';
+
+const schema = yup.object().shape({
+    url: yup.string().url('Must be a valid url').required('URL is required'),
+});
+
+type FormValue = {
+    url: string;
+};
 
 export default function Index() {
+    const {
+        register,
+        handleSubmit,
+        control,
+        formState: { errors },
+    } = useForm<FormValue>({
+        resolver: yupResolver(schema),
+    });
+    const onSubmit = (data) => console.log(data);
     return (
         <Layout>
-            <div className={styles.container}>
-                <Head>
-                    <title>Next App Starter</title>
-                    <link rel="icon" href="/favicon.ico" />
-                </Head>
-
-                <main className={styles.main}>
-                    <h1 className={styles.title}>
-                        Welcome to{' '}
-                        <a href="https://github.com/jellydn/next-app-starter">
-                            Next.js App Starter!
-                        </a>
-                    </h1>
-
-                    <p className={styles.description}>
-                        Get started by editing{' '}
-                        <code className={styles.code}>pages/index.tsx</code>
-                    </p>
-                    <Counter />
-
-                    <div className={styles.grid}>
-                        <a
-                            href="https://nextjs.org/docs"
-                            className={styles.card}
-                        >
-                            <h3>Documentation &rarr;</h3>
-                            <p>
-                                Find in-depth information about Next.js features
-                                and API.
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="min-h-screen hero bg-base-200">
+                    <div className="text-center hero-content">
+                        <div className="max-w-md">
+                            <h1 className="text-5xl font-bold">
+                                Welcome to xBitly
+                            </h1>
+                            <p className="py-6">
+                                Try SBitly Links for free. Paste your URL to
+                                create a shortened link then copy your link.
                             </p>
-                        </a>
 
-                        <a
-                            href="https://tailwindcss.com/"
-                            className={styles.card}
-                        >
-                            <h3>Tailwind CSS</h3>
-                            <p>
-                                Rapidly build modern websites without ever
-                                leaving your HTML.
-                            </p>
-                        </a>
+                            {errors.url && (
+                                <div className="shadow-lg alert alert-error">
+                                    <div>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="flex-shrink-0 w-6 h-6 stroke-current"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth="2"
+                                                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                            />
+                                        </svg>
+                                        <span>{errors.url.message}</span>
+                                    </div>
+                                </div>
+                            )}
+                            <input
+                                type="text"
+                                {...register('url', {
+                                    required: true,
+                                })}
+                                placeholder="ENTER LONG URL"
+                                className="w-full max-w-sm mt-2 input"
+                            />
 
-                        <a
-                            href="https://docs.pmnd.rs/jotai/introduction"
-                            className={styles.card}
-                        >
-                            <h3>Jotai</h3>
-                            <p>
-                                👻 Primitive and flexible state management for
-                                React.
-                            </p>
-                        </a>
-
-                        <a
-                            href="https://storybook.js.org/"
-                            className={styles.card}
-                        >
-                            <h3>Storybook</h3>
-                            <p>Build bulletproof UI components faster.</p>
-                        </a>
-
-                        <a
-                            href="https://www.react-hook-form.com/"
-                            className={styles.card}
-                        >
-                            <h3>React Hook Form</h3>
-                            <p>
-                                Performance, flexible and extensible forms with
-                                easy-to-use validation.
-                            </p>
-                        </a>
-
-                        <a
-                            href="https://testing-library.com/"
-                            className={styles.card}
-                        >
-                            <h3>React Testing Library</h3>
-                            <p>
-                                Simple and complete testing utilities that
-                                encourage good testing practices .
-                            </p>
-                        </a>
-
-                        <a
-                            href="https://react-query.tanstack.com/"
-                            className={styles.card}
-                        >
-                            <h3>React query</h3>
-                            <p>
-                                Performant and powerful data synchronization for
-                                React
-                            </p>
-                        </a>
-
-                        <a
-                            href="https://next-auth.js.org/v3/getting-started/introduction"
-                            className={styles.card}
-                        >
-                            <h3>NextAuth.js</h3>
-                            <p>Authentication for Next.js</p>
-                        </a>
-
-                        <a
-                            href="https://www.prisma.io/"
-                            className={styles.card}
-                        >
-                            <h3>Prisma</h3>
-                            <p>
-                                Next-generation ORM for Node.js and TypeScript
-                            </p>
-                        </a>
+                            <button className="mt-2 btn btn-primary">
+                                Create A Short Link
+                            </button>
+                        </div>
                     </div>
-                </main>
-
-                <footer className={styles.footer}>
-                    <a
-                        href="https://productsway.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Powered by{' '}
-                        <Image
-                            src="/logo.svg"
-                            alt="ProductsWay Logo"
-                            width={30}
-                            height={40}
-                            className={styles.logo}
-                        />
-                    </a>
-                    <a
-                        className="pl-2"
-                        href="https://vercel.com/new/git/external?repository-url=https://github.com/jellydn/next-app-starter/"
-                    >
-                        <Image
-                            src="https://vercel.com/button"
-                            width={100}
-                            height={40}
-                            alt="Deploy with Vercel"
-                        />
-                    </a>
-                </footer>
-            </div>
+                </div>
+            </form>
         </Layout>
     );
 }

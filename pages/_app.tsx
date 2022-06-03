@@ -1,10 +1,8 @@
-import { Atom, Provider } from 'jotai';
 import { Provider as AuthProvider } from 'next-auth/client';
 import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
-import store from '../store';
 import '../styles/globals.css';
 
 if (process.env.NEXT_PUBLIC_API_MOCKING === 'yes') {
@@ -22,23 +20,13 @@ if (process.env.NEXT_PUBLIC_API_MOCKING === 'yes') {
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
-    const { initialState } = pageProps;
     return (
-        <Provider
-            initialValues={
-                initialState &&
-                ([[store.counterAtom, initialState]] as Iterable<
-                    readonly [Atom<unknown>, unknown]
-                >)
-            }
-        >
-            <AuthProvider session={pageProps.session}>
-                <QueryClientProvider client={queryClient}>
-                    <Component {...pageProps} />
-                    <ReactQueryDevtools initialIsOpen={false} />
-                </QueryClientProvider>
-            </AuthProvider>
-        </Provider>
+        <AuthProvider session={pageProps.session}>
+            <QueryClientProvider client={queryClient}>
+                <Component {...pageProps} />
+                <ReactQueryDevtools initialIsOpen={false} />
+            </QueryClientProvider>
+        </AuthProvider>
     );
 }
 

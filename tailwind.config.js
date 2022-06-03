@@ -3,12 +3,16 @@ module.exports = {
         './pages/**/*.{js,ts,jsx,tsx}',
         './components/**/*.{js,ts,jsx,tsx}',
     ],
-    darkMode: 'class',
-    theme: {
-        extend: {},
+    plugins: [require('@tailwindcss/typography'), require('daisyui')],
+    // daisyUI config (optional)
+    daisyui: {
+        styled: true,
+        themes: true,
+        base: true,
+        utils: true,
+        logs: false,
+        rtl: false,
+        prefix: '',
+        themes: ['aqua'],
     },
-    variants: {
-        extend: {},
-    },
-    plugins: [require('@tailwindcss/forms'), require('kutty')],
 };

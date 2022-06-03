@@ -1,8 +1,7 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { signIn, signOut, useSession } from 'next-auth/client';
+import Image from 'next/image';
 import Link from 'next/link';
 
-import styles from './header.module.css';
 import { HeaderProps } from './types';
 
 const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
@@ -19,35 +18,57 @@ const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
     }
 
     return (
-        <header className="text-gray-600 body-font">
-            <div className="container flex flex-col flex-wrap items-center p-5 mx-auto md:flex-row">
-                <Link href="/" passHref>
-                    <a className="flex items-center mb-4 font-medium text-gray-900 title-font md:mb-0">
-                        <img
-                            src="/logo.svg"
-                            alt="ProductsWay Logo"
-                            className="w-12 h-12"
-                        />
-                        <span className="ml-3 text-xl">Next App Starter</span>
+        <header className="navbar bg-base-100">
+            <div className="navbar-start">
+                <div className="dropdown">
+                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-5 h-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M4 6h16M4 12h8m-8 6h16"
+                            />
+                        </svg>
+                    </label>
+                    <ul
+                        tabIndex={0}
+                        className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+                    >
+                        {links.map((link) => (
+                            <li key={link.url}>
+                                <Link href={link.url}>{link.title}</Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <Link href="/">
+                    <a className="text-xl normal-case btn btn-ghost">
+                        xBitly | URL Shortener
                     </a>
                 </Link>
-                <nav className="flex flex-wrap items-center justify-center text-base md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400">
+            </div>
+            <div className="hidden navbar-center lg:flex">
+                <ul className="p-0 menu menu-horizontal">
                     {links.map((link) => (
-                        <Link key={link.url} href={link.url}>
-                            <a
-                                href={link.url}
-                                className="mr-5 hover:text-gray-900"
-                            >
-                                {link.title}
-                            </a>
-                        </Link>
+                        <li key={link.url}>
+                            <Link href={link.url}>{link.title}</Link>
+                        </li>
                     ))}
-                </nav>
+                </ul>
+            </div>
+            <div className="navbar-end">
                 {!session && (
                     <button
                         type="button"
                         onClick={() => signIn()}
-                        className="inline-flex items-center px-3 py-1 mt-4 text-base bg-gray-100 border-0 rounded focus:outline-none hover:bg-gray-200 md:mt-0"
+                        className="btn"
                     >
                         Sign In
                         <svg
@@ -65,34 +86,38 @@ const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
                 )}
 
                 {session && (
-                    <div className="inline-flex items-center px-3 py-1 mt-4 text-base bg-gray-100 border-0 rounded focus:outline-none hover:bg-gray-200 md:mt-0">
-                        {session.user.image && (
-                            <span
-                                style={{
-                                    backgroundImage: `url(${session.user.image})`,
-                                }}
-                                className={styles.avatar}
-                            />
-                        )}
-                        <span className={styles.signedInText}>
-                            <small>Signed in as</small>
-                            <br />
-                            <strong>
-                                {session.user.email || session.user.name}
-                            </strong>
-                        </span>
-
-                        <Link passHref href="/api/auth/signout">
-                            <a
-                                className={styles.button}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    signOut();
-                                }}
-                            >
-                                Sign out
-                            </a>
-                        </Link>
+                    <div className="dropdown dropdown-end">
+                        <label
+                            tabIndex={0}
+                            className="btn btn-ghost btn-circle avatar"
+                        >
+                            <div className="w-10 rounded-full">
+                                <Image
+                                    alt={
+                                        session.user.email || session.user.name
+                                    }
+                                    src={session.user.image}
+                                    layout="fill"
+                                />
+                            </div>
+                        </label>
+                        <ul
+                            tabIndex={0}
+                            className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+                        >
+                            <li>
+                                <Link passHref href="/api/auth/signout">
+                                    <a
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            signOut();
+                                        }}
+                                    >
+                                        Sign out
+                                    </a>
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
                 )}
             </div>

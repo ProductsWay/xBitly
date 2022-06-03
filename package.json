@@ -1,5 +1,5 @@
 {
-    "name": "next-app-starter",
+    "name": "shortens-url",
     "version": "0.1.0",
     "private": true,
     "scripts": {
@@ -38,7 +38,8 @@
         "@hookform/devtools": "4.1.0",
         "@hookform/resolvers": "2.9.0",
         "@prisma/client": "3.14.0",
-        "@tailwindcss/forms": "0.5.2",
+        "@tailwindcss/typography": "^0.5.2",
+        "daisyui": "^2.15.2",
         "fastest-validator": "1.12.0",
         "jotai": "1.7.1",
         "loglevel": "1.8.0",
@@ -78,7 +79,6 @@
         "identity-obj-proxy": "3.0.0",
         "jest-fetch-mock": "^3.0.3",
         "jsdom": "^19.0.0",
-        "kutty": "0.6.0",
         "lint-staged": "13.0.0",
         "msw": "0.42.0",
         "postcss": "8.4.14",

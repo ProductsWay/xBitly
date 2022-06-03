@@ -6,6 +6,6 @@ module.exports = {
     },
     images: {
         dangerouslyAllowSVG: true,
-        domains: ['vercel.com'],
+        domains: ['vercel.com', 'avatars.githubusercontent.com'],
     },
 };
