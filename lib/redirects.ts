@@ -2,7 +2,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 const apiUrl =
-    process.env.API_URL ?? 'https://staging-demo-backend-app-eyk2.encr.app/url';
+    process.env.API_URL ?? 'https://staging-xbitly-vz82.encr.app/url';
 
 export default async function redirects(req: NextRequest) {
     const url = req.nextUrl.clone();

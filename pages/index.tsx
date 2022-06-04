@@ -17,9 +17,9 @@ type FormValue = {
 };
 
 const apiUrl =
-    process.env.API_URL ?? 'https://staging-demo-backend-app-eyk2.encr.app/url';
+    process.env.API_URL ?? 'https://staging-xbitly-vz82.encr.app/url';
 
-export default function Index() {
+export default function Index({ session }) {
     const {
         register,
         handleSubmit,
@@ -31,7 +31,10 @@ export default function Index() {
     const mutation = useMutation((url: string) => {
         return fetch(apiUrl, {
             method: 'POST',
-            body: JSON.stringify({ url }),
+            body: JSON.stringify({
+                url,
+                owner: session?.user?.email ?? 'anonymous',
+            }),
         }).then((resp) => resp.json());
     });
 
@@ -41,7 +44,7 @@ export default function Index() {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="min-h-screen hero bg-base-200">
                     <div className="text-center hero-content">
-                        <div className="max-w-md">
+                        <div className="max-w-lg">
                             <h1 className="text-5xl font-bold">
                                 Welcome to xBitly
                             </h1>
@@ -49,6 +52,30 @@ export default function Index() {
                                 Try SBitly Links for free. Paste your URL to
                                 create a shortened link then copy your link.
                             </p>
+                            {!session && (
+                                <div className="shadow-lg alert alert-info">
+                                    <div>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            className="flex-shrink-0 w-6 h-6 stroke-current"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth="2"
+                                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                            ></path>
+                                        </svg>
+                                        <span>
+                                            Anonymous link will remove in 24
+                                            hours. Please sign in if you want to
+                                            have permanent link.
+                                        </span>
+                                    </div>
+                                </div>
+                            )}
 
                             {errors.url && (
                                 <div className="shadow-lg alert alert-error">
@@ -111,7 +138,6 @@ export default function Index() {
                     </div>
                 </div>
             </form>
-
             {mutation.isSuccess ? (
                 <>
                     <input
