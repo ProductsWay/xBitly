@@ -33,7 +33,9 @@ export default function Index({ session }) {
             method: 'POST',
             body: JSON.stringify({
                 url,
-                owner: session?.user?.email ?? 'anonymous',
+                owner: !session
+                    ? 'anonymous'
+                    : `${session.user?.name}:${session.user?.image}`,
             }),
         }).then((resp) => resp.json());
     });
