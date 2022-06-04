@@ -18,6 +18,7 @@
 -   Data fetching with React-Query https://react-query.tanstack.com/
 -   API built with Encore https://encore.dev/, the source code on https://github.com/jellydn/encore-demo-app
 -   Rewrite Url with Next 12 Middleware (Beta) https://nextjs.org/docs/advanced-features/middleware
+-   Authentication with Next-Auth (Github Provider) https://next-auth.js.org/v3/configuration/providers
 
 ## Install
 
