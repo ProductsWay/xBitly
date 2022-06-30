@@ -1,5 +1,4 @@
 import logger from 'loglevel';
-// eslint-disable-next-line @next/next/no-server-import-in-page
 import { NextRequest, NextResponse } from 'next/server';
 import QuickLRU from 'quick-lru';
 
