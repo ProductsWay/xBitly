@@ -3340,10 +3340,10 @@
     react-refresh "^0.13.0"
     resolve "^1.22.0"
 
-"@vitest/ui@0.17.1":
-  version "0.17.1"
-  resolved "https://registry.yarnpkg.com/@vitest/ui/-/ui-0.17.1.tgz#05cc2d5dae2467f215fadaa595331a87978b616b"
-  integrity sha512-B4PGDk5IZ10HT9GzR0NQ96VEphWY9dTf1yqBGNjPk2c7wQnhZJdHzv3tgFQiyFK5YR1cjtOV918QHCnptV4r5w==
+"@vitest/ui@0.20.2":
+  version "0.20.2"
+  resolved "https://registry.yarnpkg.com/@vitest/ui/-/ui-0.20.2.tgz#5575a7b6b10f4d30f77c4d30ff673b1e1048ec30"
+  integrity sha512-jMQzuxsiZ7SnEYQdWJwyNav/LbakR2rVJ45XFGK3e/xlhqRYV2hI/byyl4iw07kM9kCY43aK7N36i/53O5I+Vg==
   dependencies:
     sirv "^2.0.2"
 
