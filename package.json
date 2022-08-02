@@ -52,7 +52,7 @@
         "react-copy-to-clipboard": "5.1.0",
         "react-dom": "18.2.0",
         "react-hook-form": "7.33.1",
-        "react-query": "3.39.1",
+        "react-query": "3.39.2",
         "yup": "0.32.11"
     },
     "devDependencies": {
