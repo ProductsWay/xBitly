@@ -43,22 +43,24 @@ const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
                     >
                         {links.map((link) => (
                             <li key={link.url}>
-                                <Link href={link.url}>{link.title}</Link>
+                                <Link href={link.url} legacyBehavior>
+                                    {link.title}
+                                </Link>
                             </li>
                         ))}
                     </ul>
                 </div>
-                <Link href="/">
-                    <a className="text-xl normal-case btn btn-ghost">
-                        xBitly | URL Shortener
-                    </a>
+                <Link href="/" className="text-xl normal-case btn btn-ghost">
+                    xBitly | URL Shortener
                 </Link>
             </div>
             <div className="hidden navbar-center lg:flex">
                 <ul className="p-0 menu menu-horizontal">
                     {links.map((link) => (
                         <li key={link.url}>
-                            <Link href={link.url}>{link.title}</Link>
+                            <Link href={link.url} legacyBehavior>
+                                {link.title}
+                            </Link>
                         </li>
                     ))}
                 </ul>
@@ -97,7 +99,6 @@ const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
                                         session.user.email || session.user.name
                                     }
                                     src={session.user.image}
-                                    layout="fill"
                                 />
                             </div>
                         </label>
@@ -106,15 +107,15 @@ const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
                             className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
                         >
                             <li>
-                                <Link passHref href="/api/auth/signout">
-                                    <a
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            signOut();
-                                        }}
-                                    >
-                                        Sign out
-                                    </a>
+                                <Link
+                                    passHref
+                                    href="/api/auth/signout"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        signOut();
+                                    }}
+                                >
+                                    Sign out
                                 </Link>
                             </li>
                         </ul>
