@@ -40,7 +40,7 @@
         "@hookform/resolvers": "2.9.10",
         "@prisma/client": "4.5.0",
         "@tailwindcss/typography": "0.5.7",
-        "daisyui": "2.33.0",
+        "daisyui": "2.36.1",
         "fastest-validator": "1.15.0",
         "jotai": "1.9.0",
         "loglevel": "1.8.0",
