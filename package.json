@@ -42,7 +42,7 @@
         "@tailwindcss/typography": "0.5.8",
         "daisyui": "2.42.1",
         "fastest-validator": "1.15.0",
-        "jotai": "1.10.0",
+        "jotai": "1.11.0",
         "loglevel": "1.8.1",
         "next": "13.0.5",
         "next-auth": "3.29.10",
