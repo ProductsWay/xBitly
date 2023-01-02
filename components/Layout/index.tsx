@@ -17,7 +17,19 @@ const Layout: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => (
             src="//gc.zgo.at/count.js"
         />
 
-        <Header links={[]} />
+        <Header
+            links={[
+                {
+                    title: 'Home',
+                    url: '/',
+                },
+
+                {
+                    title: 'About Us',
+                    url: '/about',
+                },
+            ]}
+        />
 
         {children}
 
