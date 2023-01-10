@@ -31,18 +31,18 @@
         ]
     },
     "resolutions": {
-        "postcss": "8.4.20"
+        "postcss": "8.4.21"
     },
     "dependencies": {
         "@headlessui/react": "1.7.7",
         "@heroicons/react": "2.0.13",
         "@hookform/devtools": "4.3.0",
         "@hookform/resolvers": "2.9.10",
-        "@prisma/client": "4.8.0",
+        "@prisma/client": "4.8.1",
         "@tailwindcss/typography": "0.5.8",
         "daisyui": "2.46.1",
         "fastest-validator": "1.16.0",
-        "jotai": "1.12.1",
+        "jotai": "1.13.0",
         "loglevel": "1.8.1",
         "next": "13.1.1",
         "next-auth": "3.29.10",
@@ -52,12 +52,12 @@
         "react": "18.2.0",
         "react-copy-to-clipboard": "5.1.0",
         "react-dom": "18.2.0",
-        "react-hook-form": "7.41.3",
+        "react-hook-form": "7.41.5",
         "react-query": "3.39.2",
         "yup": "0.32.11"
     },
     "devDependencies": {
-        "@babel/core": "7.20.7",
+        "@babel/core": "7.20.12",
         "@storybook/addon-actions": "6.5.15",
         "@storybook/addon-essentials": "6.5.15",
         "@storybook/addon-links": "6.5.15",
@@ -66,14 +66,14 @@
         "@testing-library/react": "13.4.0",
         "@trivago/prettier-plugin-sort-imports": "4.0.0",
         "@types/react": "18.0.26",
-        "@typescript-eslint/eslint-plugin": "5.48.0",
-        "@typescript-eslint/parser": "5.48.0",
-        "@vitejs/plugin-react": "3.0.0",
-        "@vitest/ui": "0.26.3",
+        "@typescript-eslint/eslint-plugin": "5.48.1",
+        "@typescript-eslint/parser": "5.48.1",
+        "@vitejs/plugin-react": "3.0.1",
+        "@vitest/ui": "0.27.0",
         "autoprefixer": "10.4.13",
         "babel-eslint": "10.1.0",
         "babel-jest": "29.3.1",
-        "babel-loader": "9.1.0",
+        "babel-loader": "9.1.2",
         "c8": "7.12.0",
         "eslint": "8.31.0",
         "eslint-config-next": "13.1.1",
@@ -84,14 +84,14 @@
         "jsdom": "20.0.3",
         "lint-staged": "13.1.0",
         "msw": "0.49.2",
-        "postcss": "8.4.20",
-        "prettier": "2.8.1",
-        "prisma": "4.8.0",
+        "postcss": "8.4.21",
+        "prettier": "2.8.2",
+        "prisma": "4.8.1",
         "sort-package-json": "2.1.0",
         "tailwindcss": "3.2.4",
         "typescript": "4.9.4",
-        "vite": "4.0.3",
-        "vitest": "0.26.3"
+        "vite": "4.0.4",
+        "vitest": "0.27.0"
     },
     "msw": {
         "workerDirectory": "public"
