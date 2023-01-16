@@ -16,6 +16,8 @@ const Layout: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => (
             async
             src="//gc.zgo.at/count.js"
         />
+        
+        <Script async defer src="https://analytics.umami.is/script.js" data-website-id="b46103f1-1f8f-46d5-9fcb-0b2cbaaf6252" />
 
         <Header
             links={[
