@@ -4,6 +4,7 @@ import { defineConfig } from 'vitest/config';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    // @ts-expect-error build error with vitejs
     plugins: [react()],
     test: {
         globals: true,
