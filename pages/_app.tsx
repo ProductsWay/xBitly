@@ -1,4 +1,4 @@
-import { Provider as AuthProvider } from 'next-auth/client';
+import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -21,12 +21,12 @@ const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps<any>) {
     return (
-        <AuthProvider session={pageProps.session}>
+        <SessionProvider session={pageProps.session} refetchInterval={5 * 60}>
             <QueryClientProvider client={queryClient}>
                 <Component {...pageProps} />
                 <ReactQueryDevtools initialIsOpen={false} />
             </QueryClientProvider>
-        </AuthProvider>
+        </SessionProvider>
     );
 }
 

@@ -1,6 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { GetServerSideProps } from 'next';
-import { getSession } from 'next-auth/client';
+import { getSession } from 'next-auth/react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
@@ -105,7 +105,7 @@ export default function Index({ session }) {
                                     required: true,
                                 })}
                                 placeholder="ENTER LONG URL"
-                                className="w-full max-w-sm mt-2 input"
+                                className="mt-2 w-full max-w-sm input"
                             />
 
                             <button
@@ -151,7 +151,7 @@ export default function Index({ session }) {
                         <div className="relative modal-box">
                             <label
                                 htmlFor="my-modal"
-                                className="absolute btn btn-sm btn-circle right-2 top-2"
+                                className="absolute top-2 right-2 btn btn-sm btn-circle"
                             >
                                 ✕
                             </label>

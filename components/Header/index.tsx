@@ -1,4 +1,4 @@
-import { signIn, signOut, useSession } from 'next-auth/client';
+import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -7,7 +7,8 @@ import { HeaderProps } from './types';
 const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
     links = [],
 }) => {
-    const [session, loading] = useSession();
+    const { data: session, status } = useSession();
+    const loading = status === 'loading';
 
     if (loading) {
         return (
@@ -21,7 +22,7 @@ const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
         <header className="navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                    <label tabIndex={0} className="lg:hidden btn btn-ghost">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="w-5 h-5"
@@ -39,7 +40,7 @@ const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
                     </label>
                     <ul
                         tabIndex={0}
-                        className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+                        className="p-2 mt-3 w-52 shadow menu menu-compact dropdown-content bg-base-100 rounded-box"
                     >
                         {links.map((link) => (
                             <li key={link.url}>
@@ -54,7 +55,7 @@ const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
                     xBitly | URL Shortener
                 </Link>
             </div>
-            <div className="hidden navbar-center lg:flex">
+            <div className="hidden lg:flex navbar-center">
                 <ul className="p-0 menu menu-horizontal">
                     {links.map((link) => (
                         <li key={link.url}>
@@ -79,7 +80,7 @@ const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             strokeWidth="2"
-                            className="w-4 h-4 ml-1"
+                            className="ml-1 w-4 h-4"
                             viewBox="0 0 24 24"
                         >
                             <path d="M5 12h14M12 5l7 7-7 7" />
@@ -104,7 +105,7 @@ const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
                         </label>
                         <ul
                             tabIndex={0}
-                            className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+                            className="p-2 mt-3 w-52 shadow menu menu-compact dropdown-content bg-base-100 rounded-box"
                         >
                             <li>
                                 <Link
