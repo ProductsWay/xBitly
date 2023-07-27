@@ -31,7 +31,7 @@
         ]
     },
     "resolutions": {
-        "postcss": "8.4.24"
+        "postcss": "8.4.27"
     },
     "dependencies": {
         "@headlessui/react": "1.7.15",
