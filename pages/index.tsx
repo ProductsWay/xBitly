@@ -1,9 +1,9 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { GetServerSideProps } from 'next';
+import { useMutation } from '@tanstack/react-query';
+import { type GetServerSideProps } from 'next';
 import { getSession } from 'next-auth/react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useForm } from 'react-hook-form';
-import { useMutation } from '@tanstack/react-query';
 import * as yup from 'yup';
 
 import Layout from '../components/Layout';
@@ -19,7 +19,7 @@ type FormValue = {
 const apiUrl =
     process.env.API_URL ?? 'https://staging-xbitly-vz82.encr.app/url';
 
-export default function Index({ session }) {
+export default function Index({ session }: { readonly session: any }) {
     const {
         register,
         handleSubmit,
@@ -28,19 +28,22 @@ export default function Index({ session }) {
         resolver: yupResolver(schema),
     });
 
-    const mutation = useMutation((url: string) => {
-        return fetch(apiUrl, {
+    const mutation = useMutation(async (url: string) =>
+        fetch(apiUrl, {
             method: 'POST',
             body: JSON.stringify({
                 url,
-                owner: !session
-                    ? 'anonymous'
-                    : `${session.user?.name}:${session.user?.image}`,
+                owner: session
+                    ? `${session.user?.name}:${session.user?.image}`
+                    : 'anonymous',
             }),
-        }).then((resp) => resp.json());
-    });
+        }).then(async (resp) => resp.json()),
+    );
 
-    const onSubmit = (data: FormValue) => mutation.mutate(data.url);
+    const onSubmit = (data: FormValue) => {
+        mutation.mutate(data.url);
+    };
+
     return (
         <Layout>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -68,7 +71,7 @@ export default function Index({ session }) {
                                                 strokeLinejoin="round"
                                                 strokeWidth="2"
                                                 d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                                            ></path>
+                                            />
                                         </svg>
                                         <span>
                                             Anonymous link will remove in 24
@@ -162,9 +165,9 @@ export default function Index({ session }) {
                             <div className="py-8 form-control">
                                 <div className="justify-center input-group">
                                     <input
+                                        disabled
                                         type="text"
                                         placeholder="Search…"
-                                        disabled
                                         className="input input-bordered"
                                         value={`${window.location.href}${mutation.data?.ID}`}
                                     />
@@ -175,7 +178,10 @@ export default function Index({ session }) {
                                         <CopyToClipboard
                                             text={`${window.location.href}${mutation.data?.ID}`}
                                         >
-                                            <button className="btn btn-square">
+                                            <button
+                                                type="button"
+                                                className="btn btn-square"
+                                            >
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     className="w-6 h-6"

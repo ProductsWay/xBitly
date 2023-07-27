@@ -2,11 +2,9 @@ import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { HeaderProps } from './types';
+import { type HeaderProps } from './types';
 
-const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
-    links = [],
-}) => {
+function Header({ links = [] }: HeaderProps) {
     const { data: session, status } = useSession();
     const loading = status === 'loading';
 
@@ -44,7 +42,7 @@ const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
                     >
                         {links.map((link) => (
                             <li key={link.url}>
-                                <Link href={link.url} legacyBehavior>
+                                <Link legacyBehavior href={link.url}>
                                     {link.title}
                                 </Link>
                             </li>
@@ -59,7 +57,7 @@ const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
                 <ul className="p-0 menu menu-horizontal">
                     {links.map((link) => (
                         <li key={link.url}>
-                            <Link href={link.url} legacyBehavior>
+                            <Link legacyBehavior href={link.url}>
                                 {link.title}
                             </Link>
                         </li>
@@ -70,8 +68,8 @@ const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
                 {!session && (
                     <button
                         type="button"
-                        onClick={() => signIn()}
                         className="btn"
+                        onClick={async () => signIn()}
                     >
                         Sign In
                         <svg
@@ -111,9 +109,9 @@ const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
                                 <Link
                                     passHref
                                     href="/api/auth/signout"
-                                    onClick={(e) => {
+                                    onClick={async (e) => {
                                         e.preventDefault();
-                                        signOut();
+                                        await signOut();
                                     }}
                                 >
                                     Sign out
@@ -125,7 +123,7 @@ const Header: React.FC<React.PropsWithChildren<HeaderProps>> = ({
             </div>
         </header>
     );
-};
+}
 
 export default Header;
 export * from './types';
