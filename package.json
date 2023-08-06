@@ -47,7 +47,7 @@
         "jotai": "2.2.3",
         "loglevel": "1.8.1",
         "next": "13.4.12",
-        "next-auth": "4.22.3",
+        "next-auth": "4.22.4",
         "next-secure-headers": "2.2.0",
         "next-validations": "0.3.3",
         "quick-lru": "6.1.1",
