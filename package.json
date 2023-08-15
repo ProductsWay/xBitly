@@ -31,7 +31,7 @@
         ]
     },
     "resolutions": {
-        "postcss": "8.4.27"
+        "postcss": "8.4.28"
     },
     "dependencies": {
         "@headlessui/react": "1.7.16",
@@ -86,8 +86,8 @@
         "jsdom": "22.1.0",
         "lint-staged": "13.3.0",
         "msw": "1.2.3",
-        "postcss": "8.4.27",
-        "prettier": "3.0.1",
+        "postcss": "8.4.28",
+        "prettier": "3.0.2",
         "prisma": "5.1.1",
         "sort-package-json": "2.5.1",
         "tailwindcss": "3.3.3",
