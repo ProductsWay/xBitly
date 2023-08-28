@@ -85,7 +85,7 @@
         "jest-fetch-mock": "3.0.3",
         "jsdom": "22.1.0",
         "lint-staged": "13.3.0",
-        "msw": "1.2.4",
+        "msw": "1.2.5",
         "postcss": "8.4.28",
         "prettier": "3.0.2",
         "prisma": "5.2.0",
