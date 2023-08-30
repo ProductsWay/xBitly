@@ -42,7 +42,7 @@
         "@tailwindcss/typography": "0.5.9",
         "@tanstack/react-query": "4.33.0",
         "@tanstack/react-query-devtools": "4.33.0",
-        "daisyui": "3.6.3",
+        "daisyui": "3.6.4",
         "fastest-validator": "1.17.0",
         "jotai": "2.4.0",
         "loglevel": "1.8.1",
