@@ -54,7 +54,7 @@
         "react": "18.2.0",
         "react-copy-to-clipboard": "5.1.0",
         "react-dom": "18.2.0",
-        "react-hook-form": "7.45.4",
+        "react-hook-form": "7.46.0",
         "yup": "1.2.0"
     },
     "devDependencies": {
@@ -85,7 +85,7 @@
         "jest-fetch-mock": "3.0.3",
         "jsdom": "22.1.0",
         "lint-staged": "13.3.0",
-        "msw": "1.2.5",
+        "msw": "1.3.0",
         "postcss": "8.4.29",
         "prettier": "3.0.3",
         "prisma": "5.2.0",
