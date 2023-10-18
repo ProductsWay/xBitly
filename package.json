@@ -47,7 +47,7 @@
         "jotai": "2.4.3",
         "loglevel": "1.8.1",
         "next": "13.5.5",
-        "next-auth": "4.23.2",
+        "next-auth": "4.24.3",
         "next-secure-headers": "2.2.0",
         "next-validations": "0.4.1",
         "quick-lru": "6.1.2",
@@ -67,8 +67,8 @@
         "@testing-library/jest-dom": "5.17.0",
         "@testing-library/react": "14.0.0",
         "@trivago/prettier-plugin-sort-imports": "4.2.0",
-        "@types/react": "18.2.28",
-        "@types/react-copy-to-clipboard": "5.0.5",
+        "@types/react": "18.2.29",
+        "@types/react-copy-to-clipboard": "5.0.6",
         "@typescript-eslint/eslint-plugin": "6.8.0",
         "@typescript-eslint/parser": "6.8.0",
         "@vitejs/plugin-react": "4.1.0",
@@ -92,7 +92,7 @@
         "sort-package-json": "2.6.0",
         "tailwindcss": "3.3.3",
         "typescript": "5.2.2",
-        "vite": "4.4.11",
+        "vite": "4.5.0",
         "vitest": "0.34.6"
     },
     "msw": {
