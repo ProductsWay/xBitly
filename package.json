@@ -41,7 +41,7 @@
         "@prisma/client": "5.8.1",
         "@tailwindcss/typography": "0.5.10",
         "@tanstack/react-query": "5.17.19",
-        "@tanstack/react-query-devtools": "5.17.19",
+        "@tanstack/react-query-devtools": "5.17.21",
         "daisyui": "4.6.0",
         "fastest-validator": "1.17.0",
         "jotai": "2.6.2",
