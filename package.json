@@ -44,7 +44,7 @@
         "@tanstack/react-query-devtools": "5.17.21",
         "daisyui": "4.6.0",
         "fastest-validator": "1.17.0",
-        "jotai": "2.6.2",
+        "jotai": "2.6.3",
         "loglevel": "1.8.1",
         "next": "13.5.6",
         "next-auth": "4.24.5",
