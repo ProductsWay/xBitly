@@ -1,0 +1,11 @@
+Nonoctal
+Instantiator
+goatcounter
+loglevel
+Threadify
+maxage
+daisyui
+jellydn
+kofi
+buymeacoffee
+automerge
