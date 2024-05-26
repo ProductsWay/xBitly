@@ -11,6 +11,8 @@
 
 [![Encore - Backend Development Engine - How to build shorten URL App](https://img.youtube.com/vi/0HP8ww_BtBk/0.jpg)](https://www.youtube.com/watch?v=0HP8ww_BtBk)
 
+[![IT Man - Effortless Code Maintenance: find unused files, dependencies and exports with Knip](https://i.ytimg.com/vi/K5q_HDTd7wY/hqdefault.jpg)](https://www.youtube.com/watch?v=K5q_HDTd7wY)
+
 ### ✨ [Demo](https://s.productsway.com)
 
 ![https://gyazo.com/ef76e3e0686a3b50c88b719ab5a3c369.gif](https://gyazo.com/ef76e3e0686a3b50c88b719ab5a3c369.gif)
