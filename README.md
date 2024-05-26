@@ -15,6 +15,11 @@
 
 ![https://gyazo.com/ef76e3e0686a3b50c88b719ab5a3c369.gif](https://gyazo.com/ef76e3e0686a3b50c88b719ab5a3c369.gif)
 
+## Pre-requisites
+
+- [Bun — A fast all-in-one JavaScript runtime](https://bun.sh/)
+- Or you can use Node.js > 18.x
+
 ## Libraries used
 
 -   UI styling with DaisyUI https://daisyui.com/
@@ -27,7 +32,7 @@
 ## Install
 
 ```sh
-yarn install
+bun install
 ```
 
 ## Usage
@@ -35,19 +40,19 @@ yarn install
 Create .env file base on .env.example then run below command
 
 ```sh
-yarn dev
+bun run dev
 ```
 
 ## Run tests
 
 ```sh
-yarn test
+bun run test
 ```
 
 ## Run storybook
 
 ```sh
-yarn storybook
+bun run storybook
 ```
 
 ## Author
