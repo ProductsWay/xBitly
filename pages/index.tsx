@@ -112,18 +112,21 @@ export default function Index({ session }: { readonly session: any }) {
                                 className="mt-2 w-full max-w-sm input"
                             />
 
-                            <button
-                                type="submit"
-                                className={
-                                    mutation.isPending
-                                        ? 'mt-2 btn btn-primary loading'
-                                        : 'mt-2 btn btn-primary'
-                                }
-                            >
-                                {mutation.isPending
-                                    ? 'Creating A Short Link'
-                                    : 'Create A Short Link'}
-                            </button>
+                            {mutation.isPending ? (
+                                <button
+                                    type="button"
+                                    className="mt-2 btn btn-disabled"
+                                >
+                                    <span className="loading loading-spinner"></span>
+                                </button>
+                            ) : (
+                                <button
+                                    type="submit"
+                                    className={'mt-2 btn btn-primary'}
+                                >
+                                    Create A Short Link
+                                </button>
+                            )}
 
                             {mutation.isError ? (
                                 <div>
@@ -164,16 +167,16 @@ export default function Index({ session }: { readonly session: any }) {
                             </h3>
 
                             <div className="py-8 form-control">
-                                <div className="justify-center input-group">
+                                <div className="justify-center join">
                                     <input
                                         disabled={true}
                                         type="text"
                                         placeholder="Search…"
-                                        className="input input-bordered"
+                                        className="input input-bordered join-item"
                                         value={`${window.location.href}${mutation.data?.ID}`}
                                     />
                                     <div
-                                        className="tooltip"
+                                        className="tooltip join-item"
                                         data-tip="Copy to clipboard"
                                     >
                                         <CopyToClipboard
