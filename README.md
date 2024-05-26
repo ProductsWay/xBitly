@@ -55,6 +55,14 @@ bun run test
 bun run storybook
 ```
 
+## Pre-commit
+
+This project uses [pre-commit](https://pre-commit.com) to enforce code style and quality. To install pre-commit, run:
+
+```sh
+pre-commit install
+```
+
 ## Author
 
 -   Website: https://productsway.com/
