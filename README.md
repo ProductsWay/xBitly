@@ -22,12 +22,12 @@
 
 ## Libraries used
 
--   UI styling with DaisyUI https://daisyui.com/
--   Form with React-hook-form https://react-hook-form.com/
--   Data fetching with React-Query https://react-query.tanstack.com/
--   API built with Encore https://encore.dev/, the source code on https://github.com/jellydn/encore-demo-app
--   Rewrite Url with Next 12 Middleware (Beta) https://nextjs.org/docs/advanced-features/middleware
--   Authentication with Next-Auth (Github Provider) https://next-auth.js.org/v3/configuration/providers
+- UI styling with DaisyUI https://daisyui.com/
+- Form with React-hook-form https://react-hook-form.com/
+- Data fetching with React-Query https://react-query.tanstack.com/
+- API built with Encore https://encore.dev/, the source code on https://github.com/jellydn/encore-demo-app
+- Rewrite Url with Next 12 Middleware (Beta) https://nextjs.org/docs/advanced-features/middleware
+- Authentication with Next-Auth (Github Provider) https://next-auth.js.org/v3/configuration/providers
 
 ## Install
 
@@ -65,9 +65,9 @@ pre-commit install
 
 ## Author
 
--   Website: https://productsway.com/
--   Twitter: [@jellydn](https://twitter.com/jellydn)
--   Github: [@jellydn](https://github.com/jellydn)
+- Website: https://productsway.com/
+- Twitter: [@jellydn](https://twitter.com/jellydn)
+- Github: [@jellydn](https://github.com/jellydn)
 
 ## Show your support
 
