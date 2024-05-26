@@ -8,7 +8,7 @@
         "coverage": "vitest run --coverage",
         "dev": "next dev",
         "dev:turbo": "next dev --turbo",
-        "lint": "next lint",
+        "lint": "biome lint --apply-unsafe .",
         "check": "biome check --apply-unsafe .",
         "prepare": "husky install",
         "start": "next start",
