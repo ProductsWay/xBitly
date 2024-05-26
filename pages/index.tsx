@@ -28,17 +28,18 @@ export default function Index({ session }: { readonly session: any }) {
         resolver: yupResolver(schema),
     });
 
-    const mutation = useMutation(async (url: string) =>
-        fetch(apiUrl, {
-            method: 'POST',
-            body: JSON.stringify({
-                url,
-                owner: session
-                    ? `${session.user?.name}:${session.user?.image}`
-                    : 'anonymous',
-            }),
-        }).then(async (resp) => resp.json()),
-    );
+    const mutation = useMutation({
+        mutationFn: (url: string) =>
+            fetch(apiUrl, {
+                method: 'POST',
+                body: JSON.stringify({
+                    url,
+                    owner: session
+                        ? `${session.user?.name}:${session.user?.image}`
+                        : 'anonymous',
+                }),
+            }).then(async (resp) => resp.json()),
+    });
 
     const onSubmit = (data: FormValue) => {
         mutation.mutate(data.url);
@@ -114,12 +115,12 @@ export default function Index({ session }: { readonly session: any }) {
                             <button
                                 type="submit"
                                 className={
-                                    mutation.isLoading
+                                    mutation.isPending
                                         ? 'mt-2 btn btn-primary loading'
                                         : 'mt-2 btn btn-primary'
                                 }
                             >
-                                {mutation.isLoading
+                                {mutation.isPending
                                     ? 'Creating A Short Link'
                                     : 'Create A Short Link'}
                             </button>
@@ -131,7 +132,7 @@ export default function Index({ session }: { readonly session: any }) {
                                 </div>
                             ) : null}
 
-                            {!mutation.isLoading && mutation.isSuccess && (
+                            {!mutation.isPending && mutation.isSuccess && (
                                 <label
                                     htmlFor="my-modal"
                                     className="ml-2 btn modal-button"
