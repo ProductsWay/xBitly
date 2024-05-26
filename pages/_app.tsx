@@ -8,13 +8,13 @@ import '../styles/globals.css';
 if (process.env.NEXT_PUBLIC_API_MOCKING === 'yes') {
     if (typeof window === 'undefined') {
         import('../mocks/server')
-            .then(({ server }) => {
-                server.listen();
+            .then((server) => {
+                server.default.listen();
             })
             .catch(console.error);
     } else {
         import('../mocks/browser')
-            .then(async ({ browser }) => browser.start())
+            .then(async (browser) => browser.default.start())
             .catch(console.error);
     }
 }
