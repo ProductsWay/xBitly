@@ -1,0 +1,13 @@
+name: Lint project with knip
+
+on: push
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: Ubuntu/Node v20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - name: Run knip
+        run: npx knip
