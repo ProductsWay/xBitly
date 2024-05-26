@@ -1,13 +1,16 @@
 name: Lint project with knip
-
 on: push
 
 jobs:
   lint:
     runs-on: ubuntu-latest
-    name: Ubuntu/Node v20
+    name: Lint project with knip
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Install bun
+        uses: oven-sh/setup-bun@v1
+      - name: Install dependencies
+        run: bun install
       - name: Run knip
-        run: npx knip
+        run: bunx knip
