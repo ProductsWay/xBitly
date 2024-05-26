@@ -3,4 +3,4 @@ export type HeaderProps = {
         title: string;
         url: string;
     }>;
-}
+};

@@ -9,6 +9,7 @@
         "dev": "next dev",
         "dev:turbo": "next dev --turbo",
         "lint": "next lint",
+        "check": "biome check --apply-unsafe .",
         "prepare": "husky install",
         "start": "next start",
         "storybook": "start-storybook -p 6006",
@@ -16,19 +17,12 @@
         "test:ui": "vitest --ui"
     },
     "lint-staged": {
-        "*.{js,ts,tsx}": [
-            "eslint --cache --fix",
-            "prettier --write"
-        ],
-        "*.{css,json,md,yml,yaml}": [
-            "prettier --write"
-        ],
+        "*.{js,ts,tsx}": ["eslint --cache --fix", "prettier --write"],
+        "*.{css,json,md,yml,yaml}": ["prettier --write"],
         "package.json": "sort-package-json"
     },
     "babel": {
-        "presets": [
-            "next/babel"
-        ]
+        "presets": ["next/babel"]
     },
     "resolutions": {
         "postcss": "8.4.38"

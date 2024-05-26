@@ -2,7 +2,7 @@ import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { type HeaderProps } from './types';
+import type { HeaderProps } from './types';
 
 function Header({ links = [] }: HeaderProps) {
     const { data: session, status } = useSession();
@@ -20,7 +20,7 @@ function Header({ links = [] }: HeaderProps) {
         <header className="navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <label tabIndex={0} className="lg:hidden btn btn-ghost">
+                    <label className="lg:hidden btn btn-ghost">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="w-5 h-5"
@@ -36,13 +36,10 @@ function Header({ links = [] }: HeaderProps) {
                             />
                         </svg>
                     </label>
-                    <ul
-                        tabIndex={0}
-                        className="p-2 mt-3 w-52 shadow menu menu-compact dropdown-content bg-base-100 rounded-box"
-                    >
+                    <ul className="p-2 mt-3 w-52 shadow menu menu-compact dropdown-content bg-base-100 rounded-box">
                         {links.map((link) => (
                             <li key={link.url}>
-                                <Link legacyBehavior href={link.url}>
+                                <Link legacyBehavior={true} href={link.url}>
                                     {link.title}
                                 </Link>
                             </li>
@@ -57,7 +54,7 @@ function Header({ links = [] }: HeaderProps) {
                 <ul className="p-0 menu menu-horizontal">
                     {links.map((link) => (
                         <li key={link.url}>
-                            <Link legacyBehavior href={link.url}>
+                            <Link legacyBehavior={true} href={link.url}>
                                 {link.title}
                             </Link>
                         </li>
@@ -88,10 +85,7 @@ function Header({ links = [] }: HeaderProps) {
 
                 {session && (
                     <div className="dropdown dropdown-end">
-                        <label
-                            tabIndex={0}
-                            className="btn btn-ghost btn-circle avatar"
-                        >
+                        <label className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
                                 <Image
                                     alt={
@@ -101,13 +95,10 @@ function Header({ links = [] }: HeaderProps) {
                                 />
                             </div>
                         </label>
-                        <ul
-                            tabIndex={0}
-                            className="p-2 mt-3 w-52 shadow menu menu-compact dropdown-content bg-base-100 rounded-box"
-                        >
+                        <ul className="p-2 mt-3 w-52 shadow menu menu-compact dropdown-content bg-base-100 rounded-box">
                             <li>
                                 <Link
-                                    passHref
+                                    passHref={true}
                                     href="/api/auth/signout"
                                     onClick={async (e) => {
                                         e.preventDefault();

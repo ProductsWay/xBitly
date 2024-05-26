@@ -1,6 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation } from '@tanstack/react-query';
-import { type GetServerSideProps } from 'next';
+import type { GetServerSideProps } from 'next';
 import { getSession } from 'next-auth/react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useForm } from 'react-hook-form';
@@ -165,7 +165,7 @@ export default function Index({ session }: { readonly session: any }) {
                             <div className="py-8 form-control">
                                 <div className="justify-center input-group">
                                     <input
-                                        disabled
+                                        disabled={true}
                                         type="text"
                                         placeholder="Search…"
                                         className="input input-bordered"

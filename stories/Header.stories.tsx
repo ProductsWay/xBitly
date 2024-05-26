@@ -1,6 +1,6 @@
-import { Story } from '@storybook/react';
+import type { Story } from '@storybook/react';
 
-import Header, { HeaderProps } from '../components/Header';
+import Header, { type HeaderProps } from '../components/Header';
 
 export default {
     title: 'Header',

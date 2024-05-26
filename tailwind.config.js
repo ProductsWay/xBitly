@@ -7,7 +7,6 @@ module.exports = {
     // daisyUI config (optional)
     daisyui: {
         styled: true,
-        themes: true,
         base: true,
         utils: true,
         logs: false,
