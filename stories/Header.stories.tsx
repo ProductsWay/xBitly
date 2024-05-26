@@ -1,4 +1,4 @@
-import type { Story } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 
 import Header, { type HeaderProps } from '../components/Header';
 
@@ -7,7 +7,7 @@ export default {
     argTypes: { onSignIn: { action: 'clicked' } },
 };
 
-const Template: Story<HeaderProps> = (args) => <Header {...args} />;
+const Template: StoryFn<HeaderProps> = (args) => <Header {...args} />;
 
 export const ContactLink = Template.bind({});
 
