@@ -19,7 +19,7 @@
         "presets": ["next/babel"]
     },
     "resolutions": {
-        "postcss": "8.4.38"
+        "postcss": "8.4.47"
     },
     "dependencies": {
         "@headlessui/react": "2.1.8",
