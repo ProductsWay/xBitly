@@ -34,7 +34,7 @@
         "fastest-validator": "1.19.0",
         "jotai": "2.10.3",
         "loglevel": "1.9.2",
-        "next": "15.0.3",
+        "next": "15.5.21",
         "next-auth": "4.24.10",
         "next-secure-headers": "2.2.0",
         "next-validations": "1.0.3",
