@@ -60,7 +60,7 @@
         "@typescript-eslint/eslint-plugin": "8.16.0",
         "@typescript-eslint/parser": "8.16.0",
         "@vitejs/plugin-react": "4.3.4",
-        "@vitest/ui": "2.1.6",
+        "@vitest/ui": "5.0.0",
         "autoprefixer": "10.4.20",
         "babel-jest": "29.7.0",
         "babel-loader": "9.2.1",
