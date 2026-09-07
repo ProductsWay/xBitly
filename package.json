@@ -46,7 +46,7 @@
         "yup": "1.4.0"
     },
     "devDependencies": {
-        "@babel/core": "7.26.0",
+        "@babel/core": "7.29.6",
         "@babel/eslint-parser": "7.25.9",
         "@storybook/addon-actions": "8.4.6",
         "@storybook/addon-essentials": "8.4.6",
